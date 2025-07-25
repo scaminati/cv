@@ -3,6 +3,7 @@
 %-------------------------------------------------------------------------------
 % A4 paper size by default, use 'letterpaper' for US letter
 \documentclass[11pt, a4paper]{awesome-cv}
+\usepackage{paracol}
 
 % Configure page margins with geometry
 \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
@@ -43,8 +44,8 @@
 \email{simone.caminati@gmail.com}
 %\dateofbirth{03/06/1990}
 %\homepage{www.posquit0.com}
-\github{https://github.com/scaminati-bv}
-\linkedin{https://www.linkedin.com/in/simonecaminati/}
+\github{scaminati-bv}
+\linkedin{simonecaminati}
 % \gitlab{gitlab-id}
 % \stackoverflow{SO-id}{SO-name}
 % \twitter{@twit}
@@ -65,34 +66,42 @@
 
 %-------------------------------------------------------------------------------
 \begin{document}
+  % Print the header with above personal information
+  % Give optional argument to change alignment(C: center, L: left, R: right)
+  \makecvheader
 
-% Print the header with above personal information
-% Give optional argument to change alignment(C: center, L: left, R: right)
-\makecvheader
+  % Print the footer with 3 arguments(<left>, <center>, <right>)
+  % Leave any of these blank if they are not needed
+  \makecvfooter
+    {\today}
+    {Simone Caminati~~~·~~~Curriculum Vitae}
+    {\thepage}
 
-% Print the footer with 3 arguments(<left>, <center>, <right>)
-% Leave any of these blank if they are not needed
-\makecvfooter
-  {\today}
-  {Simone Caminati~~~·~~~Curriculum Vitae}
-  {\thepage}
+  %-------------------------------------------------------------------------------
+  %	CV/RESUME CONTENT
+  %	Each section is imported separately, open each file in turn to modify content
+  %-------------------------------------------------------------------------------
 
+  \setlength{\columnsep}{20pt}
+  \begin{paracol}{2}
 
-%-------------------------------------------------------------------------------
-%	CV/RESUME CONTENT
-%	Each section is imported separately, open each file in turn to modify content
-%-------------------------------------------------------------------------------
-\input{cv/summary.tex}
-\input{cv/skills.tex}
-\input{cv/experience.tex}
-\input{cv/projects.tex}
-\input{cv/education.tex}
-%\input{cv/extracurricular.tex}
-%\input{cv/honors.tex}
-%\input{cv/certificates.tex}
-%\input{cv/writing.tex}
-%\input{cv/committees.tex}
+    \begin{leftcolumn}
+      \input{cv/summary.tex}
+      \input{cv/skills.tex}
+      \input{cv/experience.tex}
+    \end{leftcolumn}
+    
+    \begin{rightcolumn}
+      \input{cv/projects.tex}
+      \input{cv/education.tex}
+    \end{rightcolumn}
+    %\input{cv/extracurricular.tex}
+    %\input{cv/honors.tex}
+    %\input{cv/certificates.tex}
+    %\input{cv/writing.tex}
+    %\input{cv/committees.tex}
 
+  \end{paracol}
 
 %-------------------------------------------------------------------------------
 \end{document}
