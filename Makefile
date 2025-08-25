@@ -1,14 +1,14 @@
-.PHONY: examples
+.PHONY: src
 
 CC = xelatex
-EXAMPLES_DIR = examples
-CV_DIR = examples/cv
+SRC_DIR = src
+CV_DIR = src/cv
 CV_SRCS = $(shell find $(CV_DIR) -name '*.tex')
 
-examples: $(foreach x, cv, $x.pdf)
+src: $(foreach x, cv, $x.pdf)
 
-cv.pdf: $(EXAMPLES_DIR)/cv.tex $(CV_SRCS)
-	$(CC) -output-directory=$(EXAMPLES_DIR) $<
+cv.pdf: $(SRC_DIR)/cv.tex $(CV_SRCS)
+	$(CC) -output-directory=$(SRC_DIR) $<
 
 clean:
-	rm -rf $(EXAMPLES_DIR)/*.pdf
+	rm -rf $(SRC_DIR)/*.pdf
