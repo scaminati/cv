@@ -1,4 +1,4 @@
-.PHONY: src
+.PHONY: all
 
 CC = xelatex
 SRC_DIR = src
@@ -9,6 +9,7 @@ src: $(foreach x, cv, $x.pdf)
 
 cv.pdf: $(SRC_DIR)/cv.tex $(CV_SRCS)
 	$(CC) -output-directory=$(SRC_DIR) $<
+	mv $(SRC_DIR)/cv.pdf ./caminati-simone-cv.pdf
 
 clean:
-	rm -rf $(SRC_DIR)/*.pdf
+	rm -rf /*.pdf
